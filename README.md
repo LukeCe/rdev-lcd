@@ -1,2 +1,3 @@
-# rdev-lcd
-Docker environment for development of R code
+# R development kit
+
+A reproducible docker environment for development of R code.
