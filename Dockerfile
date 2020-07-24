@@ -3,11 +3,10 @@ FROM rocker/geospatial:3.6.3
 LABEL maintainer "Lukas Dargel <lukece@mailbox.org>"
 
 # import settings & snippets
-RUN curl -o /home/rstudio/.rstudio/monitored/user-settings/user-settings https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/user-settings/user-settings \
-    && curl -o /home/rstudio/.rstudio/monitored/user-settings/user-settings-old https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/user-settings/user-settings-old \ 
-    && curl -o  /home/rstudio/.R/snippets/r.snippets https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/snippets/r.snippets \
-    && curl -o  /home/rstudio/.R/snippets/markdown.snippets https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/snippets/markdown.snippets
-
+RUN wget https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/user-settings/user-settings-old -P /home/rstudio/.rstudio/monitored/user-settings/ \
+    && wget --backups=1 https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/user-settings/user-settings  -P /home/rstudio/.rstudio/monitored/user-settings/ \
+    && wget https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/snippets/r.snippets          -P /home/rstudio/.R/snippets/ \
+    && wget https://raw.githubusercontent.com/LukeCe/rdevkit/master/build_resources/snippets/markdown.snippets   -P /home/rstudio/.R/snippets/ 
 
 # install data version control
 RUN sudo wget https://dvc.org/deb/dvc.list -O /etc/apt/sources.list.d/dvc.list \
