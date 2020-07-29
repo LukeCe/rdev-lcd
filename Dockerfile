@@ -13,11 +13,12 @@ RUN sudo wget https://dvc.org/deb/dvc.list -O /etc/apt/sources.list.d/dvc.list \
     && sudo apt update \
     && sudo apt install dvc
 
-# additional packages	
+# additional R packages
 RUN install2.r --error \
     here \
     golem \
     leaflet.minicharts \
     shinythemes
 
-
+# additional LaTeX packages
+RUN R -e 'tinytex::tlmgr_install(c("colortbl","environ","graphics","graphics-cfg","graphics-def","ifluatex","ifxetex","oberdiek","trimspaces"))'
