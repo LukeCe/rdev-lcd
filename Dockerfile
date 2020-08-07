@@ -21,7 +21,8 @@ RUN install2.r --error \
     shinythemes
 
 # additional LaTeX packages
-RUN R -e 'tinytex::tlmgr_install(c("colortbl","environ","graphics","graphics-cfg","graphics-def","ifluatex","ifxetex","oberdiek","trimspaces"))'
+RUN   R -e 'tinytex::tlmgr("update --self")'\ 
+    && R -e 'tinytex::tlmgr_install(c("amsmath", "atbegshi", "atveryend", "bigintcalc", "bitset", "booktabs", "colortbl", "environ", "epstopdf-pkg", "etexcmds", "etoolbox", "geometry", "gettitlestring", "hycolor", "hyperref", "infwarerr", "intcalc", "kvdefinekeys", "kvoptions", "kvsetkeys", "latex-amsmath-dev", "letltxmacro", "ltxcmds", "mdwtools", "pdfescape", "pdftexcmds", "refcount", "rerunfilecheck", "stringenc", "trimspaces", "uniquecounter", "xcolor", "zapfding"))'
 
 # overwrtie default password
 ENV PASSWORD=rdev_007
