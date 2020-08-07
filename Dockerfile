@@ -22,3 +22,6 @@ RUN install2.r --error \
 
 # additional LaTeX packages
 RUN R -e 'tinytex::tlmgr_install(c("colortbl","environ","graphics","graphics-cfg","graphics-def","ifluatex","ifxetex","oberdiek","trimspaces"))'
+
+# overwrtie default password
+ENV PASSWORD=rdev_007
