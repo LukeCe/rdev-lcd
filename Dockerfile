@@ -1,4 +1,4 @@
-FROM rocker/geospatial:3.6.3
+FROM rocker/geospatial:4.0.2
 
 LABEL maintainer "Lukas Dargel <lukece@mailbox.org>"
 
